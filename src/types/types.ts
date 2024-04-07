@@ -8,7 +8,8 @@ import {
   newProfileSchema,
   newArticleSchema,
   newUserSchema,
-} from "../model/userSchema";
+  newCommentSchema,
+} from "../models/userSchema";
 
 // Profile type
 export type Profile = z.infer<typeof profileSchema>;
@@ -33,3 +34,6 @@ export type NewProfile = z.infer<typeof newProfileSchema>;
 
 // new article schema
 export type NewArticle = z.infer<typeof newArticleSchema>;
+
+// new article schema
+export type newCommentSchema = z.infer<typeof newCommentSchema>;

@@ -55,6 +55,7 @@ export const articleSchema = z.object({
 // comment schema
 export const commentSchema = z.object({
   id: z.number(),
+  articleSlug: z.string(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
   body: z.string({
@@ -80,4 +81,9 @@ export const newProfileSchema = profileSchema.omit({
 // article schema without the id field for new entries
 export const newArticleSchema = articleSchema.omit({
   id: true,
+});
+
+// comment without the slug associated to it
+export const newCommentSchema = commentSchema.omit({
+  articleSlug: true,
 });
