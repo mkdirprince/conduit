@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// user schema
+// user schema for authentication
 export const userSchema = z.object({
   id: z.string(),
   email: z
@@ -13,6 +13,7 @@ export const userSchema = z.object({
   username: z.string({
     required_error: "Username is required",
   }),
+  passwordHash: z.string(),
   bio: z.string(),
   image: z.string().optional(),
 });
@@ -68,6 +69,7 @@ export const tagsSchema = z.array(z.string());
 // user schema without the id field for new entries
 export const newUserSchema = userSchema.omit({
   id: true,
+  passwordHash: true,
 });
 
 // profile schema without the id field for new entries
